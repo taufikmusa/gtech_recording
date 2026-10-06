@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="ms" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOP & Aliran Kerja Rakaman</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Space Grotesk & Space Mono for Retro Vibe -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #f4f0e6; /* Retro paper/beige background */
+            color: #111;
+        }
+        .font-retro-mono {
+            font-family: 'Space Mono', monospace;
+        }
+        /* Neo-brutalist styling */
+        .retro-card {
+            background-color: #fff;
+            border: 3px solid #000;
+            border-radius: 12px;
+            box-shadow: 6px 6px 0px #000;
+            transition: all 0.2s ease-in-out;
+        }
+        .retro-card.interactive:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 9px 9px 0px #000;
+        }
+        .retro-badge {
+            border: 2px solid #000;
+            box-shadow: 2px 2px 0px #000;
+            font-weight: bold;
+            color: #000;
+        }
+        .retro-table td, .retro-table th {
+            border-bottom: 2px solid #000;
+        }
+
+        /* Retro Color Palette */
+        .bg-retro-yellow { background-color: #ffe600; }
+        .bg-retro-cyan { background-color: #00f0ff; }
+        .bg-retro-pink { background-color: #ff90e8; }
+        .bg-retro-green { background-color: #00f260; }
+        .bg-retro-purple { background-color: #b57cff; }
+        .bg-retro-orange { background-color: #ff9100; }
+        .bg-retro-blue { background-color: #3b82f6; color: white;}
+    </style>
+</head>
+<body class="antialiased selection:bg-black selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="sticky top-0 z-50 bg-[#f4f0e6] border-b-4 border-black shadow-[0_4px_0_0_rgba(0,0,0,1)]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-2">
+                    <i class="ph-fill ph-video-camera text-black text-3xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-black uppercase">Portal Rakaman G100</span>
+                </div>
+                <div class="hidden md:flex space-x-6 text-sm font-bold text-black uppercase tracking-wide">
+                    <a href="#jadual-pic" class="hover:underline decoration-4 underline-offset-4 decoration-cyan-500 transition">Committee</a>
+                    <a href="#pautan-pantas" class="hover:underline decoration-4 underline-offset-4 decoration-pink-500 transition">Pautan</a>
+                    <a href="#sop-utama" class="hover:underline decoration-4 underline-offset-4 decoration-yellow-500 transition">SOP</a>
+                    <a href="#sop-fb" class="hover:underline decoration-4 underline-offset-4 decoration-green-500 transition">Facebook</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16">
+
+        <!-- Header Section -->
+        <header class="text-center max-w-3xl mx-auto mb-10 mt-6">
+            <div class="inline-block bg-retro-yellow border-3 border-black px-4 py-1 rounded-full text-black font-bold uppercase tracking-widest text-sm mb-4 shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+                Prosedur Operasi Standard
+            </div>
+            <h1 class="text-4xl md:text-5xl font-extrabold text-black tracking-tight mb-6 uppercase">
+                SOP & Aliran Kerja
+            </h1>
+            <p class="text-lg text-black font-medium border-l-4 border-black pl-4 text-left md:text-center md:border-l-0 md:pl-0">
+                Panduan rasmi pasukan <span class="bg-retro-pink px-2 py-0.5 border-2 border-black font-bold text-black transform -rotate-1 inline-block">Committee</span> untuk pengurusan rakaman video Zoom, muat naik Google Drive, dan Facebook.
+            </p>
+        </header>
+
+        <!-- Banner Peringatan Rotate Task (WBM) -->
+        <section id="wbm-alert" class="scroll-mt-24">
+            <div class="retro-card bg-retro-yellow p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6 border-4">
+                <div class="flex items-start gap-4">
+                    <i class="ph-fill ph-warning-circle text-5xl text-black animate-pulse shrink-0 mt-1"></i>
+                    <div>
+                        <h2 class="text-2xl font-black text-black uppercase tracking-wide">Task Rotate: Upload WBM</h2>
+                        <p class="text-black font-bold mt-1 text-sm md:text-base leading-relaxed">Sila alert untuk task muat naik WBM ke Facebook. Task ini berputar (rotate) antara ahli committee mengikut minggu acara tersebut berlangsung.</p>
+                    </div>
+                </div>
+
+                <div class="bg-white border-4 border-black p-5 rounded-xl shadow-[6px_6px_0_0_rgba(0,0,0,1)] text-center w-full md:w-auto shrink-0 min-w-[280px]">
+                    <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1 border-b-2 border-dashed border-gray-300 pb-2">Tarikh Hari Ini</div>
+                    <div class="flex justify-center items-center gap-2 mb-4 mt-2">
+                        <i class="ph-bold ph-calendar-star text-black text-xl"></i>
+                        <span id="bannerTodayDate" class="text-lg font-bold text-black font-retro-mono">Memuatkan...</span>
+                    </div>
+
+                    <div class="text-xs font-bold uppercase tracking-widest text-slate-500 mb-1 border-b-2 border-dashed border-gray-300 pb-2">Upcoming Upload WBM</div>
+                    <div id="upcomingWBM" class="text-xl font-extrabold text-black uppercase tracking-tight mt-2">Memuatkan...</div>
+                    <div id="upcomingWBMCommittee" class="mt-2"></div>
+
+                    <!-- Butang Update Tracker -->
+                    <div class="mt-5 border-t-2 border-dashed border-gray-300 pt-4">
+                        <a href="https://docs.google.com/spreadsheets/d/1eRbf31Uj8Wgk21eFfG6OAzq--4wwSixjUwd-cAhMSVE/edit?gid=990504275#gid=990504275" target="_blank" class="bg-retro-green text-black px-4 py-2 border-2 border-black font-bold uppercase text-sm hover:bg-[#00e050] transition flex justify-center items-center gap-2 shadow-[2px_2px_0_0_rgba(0,0,0,1)] hover:translate-y-[2px] hover:translate-x-[2px] hover:shadow-none cursor-pointer w-full">
+                            <i class="ph-bold ph-pencil-simple text-lg"></i> Update Tracker
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Jadual Committee -->
+        <section id="jadual-pic" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-black mb-6 flex items-center gap-3 uppercase">
+                <i class="ph-fill ph-users text-4xl"></i> Jadual Committee
+            </h2>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+                <!-- Event Bulanan -->
+                <div class="retro-card overflow-hidden h-fit">
+                    <div class="bg-black border-b-3 border-black px-6 py-4">
+                        <h3 class="text-white font-bold text-xl flex items-center gap-2 uppercase tracking-wide">
+                            <i class="ph-bold ph-calendar-blank text-retro-pink"></i> Event Bulanan
+                        </h3>
+                    </div>
+                    <div class="p-0 bg-white">
+                        <table class="min-w-full retro-table">
+                            <tbody>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black w-1/2 text-lg">PLT</td><td class="px-6 py-4"><span class="retro-badge bg-retro-cyan px-3 py-1 text-sm">Taufik</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">NDO</td><td class="px-6 py-4"><span class="retro-badge bg-retro-green px-3 py-1 text-sm">Junaidi</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">GAN</td><td class="px-6 py-4"><span class="retro-badge bg-retro-yellow px-3 py-1 text-sm">Rajab</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">GA</td><td class="px-6 py-4"><span class="retro-badge bg-retro-green px-3 py-1 text-sm">Junaidi</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">GPP</td><td class="px-6 py-4"><span class="retro-badge bg-retro-purple px-3 py-1 text-sm">Syariz</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">PreMD</td><td class="px-6 py-4"><span class="retro-badge bg-retro-pink px-3 py-1 text-sm">Fathul</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">MD</td><td class="px-6 py-4"><span class="retro-badge bg-retro-orange px-3 py-1 text-sm">Rashid</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">FMD</td><td class="px-6 py-4"><span class="retro-badge bg-retro-pink px-3 py-1 text-sm">Fathul</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg border-b-0">Veteran</td><td class="px-6 py-4 border-b-0"><span class="retro-badge bg-retro-blue px-3 py-1 text-sm">Ameer</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Event Mingguan -->
+                <div class="retro-card overflow-hidden h-fit">
+                    <div class="bg-black border-b-3 border-black px-6 py-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                        <h3 class="text-white font-bold text-xl flex items-center gap-2 uppercase tracking-wide">
+                            <i class="ph-bold ph-calendar-check text-retro-cyan"></i> Event Mingguan
+                        </h3>
+                        <div class="flex items-center gap-2 text-sm bg-retro-yellow text-black px-4 py-1.5 rounded-full border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+                            <i class="ph-bold ph-calendar-star text-lg"></i>
+                            <span class="font-bold uppercase tracking-wider text-xs">Today:</span>
+                            <span id="todayDate" class="font-retro-mono font-bold tracking-tight text-sm">Memuatkan...</span>
+                        </div>
+                    </div>
+                    <div class="p-0 bg-white">
+                        <table class="min-w-full retro-table">
+                            <tbody>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors">
+                                    <td class="px-6 py-4 font-bold text-black align-top w-1/3 text-lg">WBM</td>
+                                    <td class="px-6 py-4">
+                                        <div class="space-y-3 font-retro-mono text-sm font-bold">
+                                            <div class="flex flex-wrap gap-3 items-center">
+                                                <span class="retro-badge bg-retro-pink px-3 py-1 w-28 text-center shrink-0">Minggu 01</span>
+                                                <span id="wbm-date-1" class="bg-white border-2 border-dashed border-black px-2 py-1 rounded-sm text-xs min-w-[75px] text-center shrink-0 text-slate-700">-</span>
+                                                <span class="retro-badge bg-retro-pink px-3 py-1 shrink-0">Fathul</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-3 items-center">
+                                                <span class="retro-badge bg-retro-yellow px-3 py-1 w-28 text-center shrink-0">Minggu 02</span>
+                                                <span id="wbm-date-2" class="bg-white border-2 border-dashed border-black px-2 py-1 rounded-sm text-xs min-w-[75px] text-center shrink-0 text-slate-700">-</span>
+                                                <span class="retro-badge bg-retro-yellow px-3 py-1 shrink-0">Rajab</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-3 items-center">
+                                                <span class="retro-badge bg-retro-green px-3 py-1 w-28 text-center shrink-0">Minggu 03</span>
+                                                <span id="wbm-date-3" class="bg-white border-2 border-dashed border-black px-2 py-1 rounded-sm text-xs min-w-[75px] text-center shrink-0 text-slate-700">-</span>
+                                                <span class="retro-badge bg-retro-green px-3 py-1 shrink-0">Junaidi</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-3 items-center">
+                                                <span class="retro-badge bg-retro-orange px-3 py-1 w-28 text-center shrink-0">Minggu 04</span>
+                                                <span id="wbm-date-4" class="bg-white border-2 border-dashed border-black px-2 py-1 rounded-sm text-xs min-w-[75px] text-center shrink-0 text-slate-700">-</span>
+                                                <span class="retro-badge bg-retro-orange px-3 py-1 shrink-0">Rashid</span>
+                                            </div>
+                                            <div class="flex flex-wrap gap-3 items-center">
+                                                <span class="retro-badge bg-retro-pink px-3 py-1 w-28 text-center shrink-0">Minggu 05</span>
+                                                <span id="wbm-date-5" class="bg-white border-2 border-dashed border-black px-2 py-1 rounded-sm text-xs min-w-[75px] text-center shrink-0 text-slate-700">-</span>
+                                                <span class="retro-badge bg-retro-pink px-3 py-1 shrink-0">Fathul</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">WGC - New Dealer</td><td class="px-6 py-4"><span class="retro-badge bg-retro-purple px-3 py-1 text-sm">Syariz</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">WGC - 50 Below</td><td class="px-6 py-4"><span class="retro-badge bg-retro-cyan px-3 py-1 text-sm">Taufik</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">WGC - PreMD</td><td class="px-6 py-4"><span class="retro-badge bg-retro-cyan px-3 py-1 text-sm">Taufik</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">PW</td><td class="px-6 py-4"><span class="retro-badge bg-retro-green px-3 py-1 text-sm">Junaidi</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">Tuesday Sharing</td><td class="px-6 py-4"><span class="retro-badge bg-retro-yellow px-3 py-1 text-sm">Rajab</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">Q&A</td><td class="px-6 py-4"><span class="retro-badge bg-retro-orange px-3 py-1 text-sm">Rashid</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg">ID - Talkshow</td><td class="px-6 py-4"><span class="retro-badge bg-retro-blue px-3 py-1 text-sm">Ameer</span></td></tr>
+                                <tr class="hover:bg-[#f4f0e6] transition-colors"><td class="px-6 py-4 font-bold text-black text-lg border-b-0">ID - WGC</td><td class="px-6 py-4 border-b-0"><span class="retro-badge bg-retro-blue px-3 py-1 text-sm">Ameer</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Pautan Pantas -->
+        <section id="pautan-pantas" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-black mb-6 flex items-center gap-3 uppercase">
+                <i class="ph-fill ph-link text-4xl"></i> Pautan Penting
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+                <!-- Tracker -->
+                <a href="https://docs.google.com/spreadsheets/d/1eRbf31Uj8Wgk21eFfG6OAzq--4wwSixjUwd-cAhMSVE/edit?gid=990504275#gid=990504275" target="_blank" class="retro-card interactive bg-retro-green p-6 block">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="retro-badge bg-white px-3 py-1 rounded-full text-xs mb-4 inline-block font-retro-mono uppercase tracking-wider">Sheet</span>
+                            <h3 class="text-2xl font-bold text-black mb-2">Recording Tracker</h3>
+                            <p class="text-black font-medium">Semak dan kemaskini status rakaman terkini.</p>
+                        </div>
+                        <div class="bg-black text-white p-2 rounded-full border-2 border-black shrink-0">
+                            <i class="ph-bold ph-arrow-up-right text-2xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Telegram Info -->
+                <a href="https://t.me/c/2439565899/9/" target="_blank" class="retro-card interactive bg-retro-blue p-6 block">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="retro-badge bg-white text-black px-3 py-1 rounded-full text-xs mb-4 inline-block font-retro-mono uppercase tracking-wider">Telegram</span>
+                            <h3 class="text-2xl font-bold mb-2">Caption & Gambar Event</h3>
+                            <p class="font-medium">Dapatkan caption dan gambar event disini untuk upload di Facebook</p>
+                        </div>
+                        <div class="bg-white text-black p-2 rounded-full border-2 border-black shrink-0">
+                            <i class="ph-bold ph-arrow-up-right text-2xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Book of the Month -->
+                <a href="https://g100.my/book-of-the-month" target="_blank" class="retro-card interactive bg-retro-pink p-6 block">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="retro-badge bg-white px-3 py-1 rounded-full text-xs mb-4 inline-block font-retro-mono uppercase tracking-wider">Web</span>
+                            <h3 class="text-2xl font-bold text-black mb-2">Book of The Month</h3>
+                            <p class="text-black font-medium">Dapatkan pautan buku cadangan bulan ini.</p>
+                        </div>
+                        <div class="bg-black text-white p-2 rounded-full border-2 border-black shrink-0">
+                            <i class="ph-bold ph-arrow-up-right text-2xl"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Canva Template -->
+                <a href="https://canva.link/mbi0z2b5k7r12k4" target="_blank" class="retro-card interactive bg-retro-purple p-6 block">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <span class="retro-badge bg-white px-3 py-1 rounded-full text-xs mb-4 inline-block font-retro-mono uppercase tracking-wider">Canva</span>
+                            <h3 class="text-2xl font-bold text-black mb-2">Template Thumbnail Facebook</h3>
+                            <p class="text-black font-medium">Edit gambar event di canva sebelum upload di Facebook</p>
+                        </div>
+                        <div class="bg-black text-white p-2 rounded-full border-2 border-black shrink-0">
+                            <i class="ph-bold ph-arrow-up-right text-2xl"></i>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- SOP Utama -->
+        <section id="sop-utama" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-black mb-6 flex items-center gap-3 uppercase">
+                <i class="ph-fill ph-list-numbers text-4xl"></i> SOP Utama
+            </h2>
+            <div class="retro-card bg-white p-6 lg:p-10">
+                <ol class="space-y-8">
+                    <!-- Step 1 -->
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border-3 border-black bg-retro-yellow text-black flex items-center justify-center font-bold text-xl shadow-[3px_3px_0_0_rgba(0,0,0,1)]">1</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black uppercase">Muat Turun Video</h4>
+                            <p class="text-black font-medium mt-2">Muat turun rakaman video dari Zoom (G100 Zoom) terus ke PC saja.</p>
+                        </div>
+                    </li>
+                    <!-- Step 2 -->
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border-3 border-black bg-retro-cyan text-black flex items-center justify-center font-bold text-xl shadow-[3px_3px_0_0_rgba(0,0,0,1)]">2</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black uppercase">Muat Naik ke Google Drive</h4>
+                            <p class="text-black font-medium mt-2">Muat naik video dari PC ke Google Drive (G100 Network Workspace). Pastikan ia dimasukkan ke dalam folder yang betul dan mematuhi format penamaan fail yang ditetapkan.</p>
+                        </div>
+                    </li>
+                    <!-- Step 3 -->
+                    <li class="flex gap-5 relative">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border-3 border-black bg-retro-pink text-black flex items-center justify-center font-bold text-xl shadow-[3px_3px_0_0_rgba(0,0,0,1)] z-10">3</div>
+                        <div class="w-full">
+                            <h4 class="text-xl font-bold text-black uppercase">Padam Video di Zoom</h4>
+                            <p class="text-black font-medium mt-2">Padam video dari akaun Zoom selepas ia berjaya dimuat naik ke Google Drive untuk menjimatkan ruang penyimpanan.</p>
+                            <div class="mt-4 border-3 border-black bg-red-100 rounded-lg p-4 flex gap-4 items-start shadow-[4px_4px_0_0_rgba(0,0,0,1)]">
+                                <i class="ph-fill ph-warning-circle text-red-600 text-3xl"></i>
+                                <div>
+                                    <span class="font-extrabold text-black uppercase tracking-wider">Pengecualian Penting!</span>
+                                    <p class="text-black font-medium mt-1">Video event <strong class="bg-black text-white px-1">PLT & NDO</strong> TIDAK BOLEH dipadam. Ia perlu dibiarkan di dalam Zoom sehinggalah event bulan berikutnya berlangsung.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Step 4 -->
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border-3 border-black bg-retro-green text-black flex items-center justify-center font-bold text-xl shadow-[3px_3px_0_0_rgba(0,0,0,1)]">4</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black uppercase">Muat Naik ke Facebook</h4>
+                            <p class="text-black font-medium mt-2">Muat naik video ke Halaman Facebook G100. Langkah ini <strong class="text-black border-b-2 border-black">HANYA</strong> untuk event berikut:</p>
+                            <div class="flex flex-wrap gap-3 mt-4">
+                                <span class="retro-badge bg-white px-3 py-1.5 text-sm">WBM</span>
+                                <span class="retro-badge bg-white px-3 py-1.5 text-sm">GPP</span>
+                                <span class="retro-badge bg-white px-3 py-1.5 text-sm">PreMD</span>
+                                <span class="retro-badge bg-white px-3 py-1.5 text-sm">MD</span>
+                                <span class="retro-badge bg-white px-3 py-1.5 text-sm">FMD</span>
+                            </div>
+                        </div>
+                    </li>
+                    <!-- Step 5 -->
+                    <li class="flex gap-5">
+                        <div class="flex-shrink-0 w-12 h-12 rounded-full border-3 border-black bg-retro-purple text-black flex items-center justify-center font-bold text-xl shadow-[3px_3px_0_0_rgba(0,0,0,1)]">5</div>
+                        <div>
+                            <h4 class="text-xl font-bold text-black uppercase">Kemaskini Tracker</h4>
+                            <p class="text-black font-medium mt-2">Kemaskini fail <a href="https://docs.google.com/spreadsheets/d/1eRbf31Uj8Wgk21eFfG6OAzq--4wwSixjUwd-cAhMSVE/edit?gid=990504275#gid=990504275" target="_blank" class="underline decoration-2 font-bold hover:text-green-600 transition">Recording Tracker</a> dengan status terkini.</p>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- SOP Facebook Posting -->
+        <section id="sop-fb" class="scroll-mt-24">
+            <h2 class="text-3xl font-bold text-black mb-6 flex items-center gap-3 uppercase">
+                <i class="ph-fill ph-facebook-logo text-4xl"></i> SOP Facebook
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <div class="retro-card interactive p-6 bg-white">
+                    <div class="w-14 h-14 bg-retro-cyan border-3 border-black rounded-xl flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,0,0,1)] mb-5">
+                        <i class="ph-bold ph-text-aa text-3xl text-black"></i>
+                    </div>
+                    <h4 class="font-extrabold text-black mb-2 text-lg uppercase">1. Ubah Suai Caption</h4>
+                    <p class="text-black font-medium">Ubah suai caption dari info tajuk webinar & speaker dari info event di <a href="https://t.me/c/2439565899/9/" target="_blank" class="underline decoration-2 font-bold hover:text-blue-600 transition">telegram</a>.</p>
+                </div>
+
+                <div class="retro-card interactive p-6 bg-white">
+                    <div class="w-14 h-14 bg-retro-pink border-3 border-black rounded-xl flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,0,0,1)] mb-5">
+                        <i class="ph-bold ph-book-open text-3xl text-black"></i>
+                    </div>
+                    <h4 class="font-extrabold text-black mb-2 text-lg uppercase">2. Pautan Buku</h4>
+                    <p class="text-black font-medium">Gantikan pautan untuk segmen <a href="https://g100.my/book-of-the-month" target="_blank" class="underline decoration-2 font-bold hover:text-pink-600 transition">Book of the Month</a> terkini.</p>
+                </div>
+
+                <div class="retro-card interactive p-6 bg-white">
+                    <div class="w-14 h-14 bg-retro-yellow border-3 border-black rounded-xl flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,0,0,1)] mb-5">
+                        <i class="ph-bold ph-image text-3xl text-black"></i>
+                    </div>
+                    <h4 class="font-extrabold text-black mb-2 text-lg uppercase">3. Thumbnail</h4>
+                    <p class="text-black font-medium">Sunting gambar dari <a href="https://t.me/c/2439565899/9/" target="_blank" class="underline decoration-2 font-bold hover:text-blue-600 transition">Telegram</a> guna <a href="https://canva.link/mbi0z2b5k7r12k4" target="_blank" class="underline decoration-2 font-bold hover:text-purple-600 transition">templat Canva</a>.</p>
+                </div>
+
+                <div class="retro-card interactive p-6 bg-white">
+                    <div class="w-14 h-14 bg-retro-green border-3 border-black rounded-xl flex items-center justify-center shadow-[3px_3px_0_0_rgba(0,0,0,1)] mb-5">
+                        <i class="ph-bold ph-upload-simple text-3xl text-black"></i>
+                    </div>
+                    <h4 class="font-extrabold text-black mb-2 text-lg uppercase">4. Pos & Muat Naik</h4>
+                    <p class="text-black font-medium">Muat naik video berserta teks dan thumbnail ke Facebook.</p>
+                </div>
+
+            </div>
+
+            <!-- Contoh Format Caption Box -->
+            <div class="mt-10 retro-card p-0 overflow-hidden bg-white">
+                <div class="bg-black px-6 py-4 flex justify-between items-center border-b-3 border-black">
+                    <h3 class="font-bold text-white uppercase tracking-wide flex items-center gap-2">
+                        <i class="ph-bold ph-quotes text-retro-yellow text-xl"></i> Contoh Format Caption
+                    </h3>
+                    <button onclick="copyCaption()" id="copyBtn" class="bg-retro-green text-black px-4 py-1.5 border-2 border-black font-bold uppercase text-sm hover:bg-white transition flex items-center gap-2 shadow-[2px_2px_0_0_rgba(255,255,255,1)] hover:shadow-[0px_0px_0_0_rgba(255,255,255,1)] hover:translate-y-[2px] hover:translate-x-[2px] active:scale-95 cursor-pointer">
+                        <i class="ph-bold ph-copy"></i> Copy
+                    </button>
+                </div>
+                <div class="p-6 bg-[#fdfbf7]">
+                    <pre id="captionText" class="whitespace-pre-wrap font-sans text-[15px] leading-relaxed text-black font-medium">WBM  🗓 5 April 2026 (Ahad) 🕘 8.30 malam
+
+DEALER BASIC TOOL SET
+🎤 Star Founder Master Dealer,
+Dr Nik Fatihah Ahmad Juhari
+
+ATTITUDE TO INVEST
+🎤 Star Founder Master Dealer,
+Puan Suryati Bujang Sangga
+
+PGMALL BY G100
+🎤 2 Star Founder Master Dealer,
+Puan Yang Nor Esiah
+
+Book of the Month :
+📕How To Win Friends & Influence People - DALE CARNEGIE
+🎤 Master Dealer, Tuan Aswan Bin Baba
+
+Beli & dapatkan buku di PGMall : https://pgmall.my/p/M270/6658</pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- Status Rujukan Tracker -->
+        <section id="status-rujukan" class="scroll-mt-24 mb-16">
+            <h2 class="text-3xl font-bold text-black mb-6 flex items-center gap-3 uppercase">
+                <i class="ph-fill ph-tag text-4xl"></i> Status Tracker
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+                <!-- Status Upload -->
+                <div class="retro-card p-6 bg-white">
+                    <h3 class="font-black text-xl text-black border-b-3 border-black pb-3 mb-5 uppercase tracking-wide">Status Drive & FB</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-3">
+                            <span class="text-black font-bold">Sedang diproses</span>
+                            <span class="retro-badge bg-retro-yellow px-3 py-1 text-sm font-retro-mono uppercase">Pending</span>
+                        </li>
+                        <li class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-3">
+                            <span class="text-black font-bold">Selesai dimuat naik</span>
+                            <span class="retro-badge bg-retro-green px-3 py-1 text-sm font-retro-mono uppercase">Complete</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-black font-bold">Tiada rakaman</span>
+                            <span class="retro-badge bg-gray-200 px-3 py-1 text-sm font-retro-mono uppercase">No Rec</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Status Delete Zoom -->
+                <div class="retro-card p-6 bg-white">
+                    <h3 class="font-black text-xl text-black border-b-3 border-black pb-3 mb-5 uppercase tracking-wide">Status Zoom</h3>
+                    <ul class="space-y-4">
+                        <li class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-3">
+                            <span class="text-black font-bold">Masih ada di Zoom</span>
+                            <span class="retro-badge bg-retro-cyan px-3 py-1 text-sm font-retro-mono uppercase">Available</span>
+                        </li>
+                        <li class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-3">
+                            <span class="text-black font-bold">Telah dipadam</span>
+                            <span class="retro-badge bg-retro-pink px-3 py-1 text-sm font-retro-mono uppercase">Deleted</span>
+                        </li>
+                        <li class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-3">
+                            <span class="text-black font-bold">Tiada rakaman</span>
+                            <span class="retro-badge bg-gray-200 px-3 py-1 text-sm font-retro-mono uppercase">No Recording</span>
+                        </li>
+                        <li class="flex items-center justify-between border-b-2 border-dashed border-gray-300 pb-3">
+                            <span class="text-black font-bold">Tiada Event pada hari tersebut</span>
+                            <span class="retro-badge bg-retro-purple px-3 py-1 text-sm font-retro-mono uppercase text-white">Cuti</span>
+                        </li>
+                        <li class="flex items-center justify-between">
+                            <span class="text-black font-bold">Status tidak pasti</span>
+                            <span class="retro-badge bg-retro-orange px-3 py-1 text-sm font-retro-mono uppercase">Unknown</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Note Kelayakan Kupon -->
+            <div class="retro-card bg-white p-6 mt-8">
+                <div class="flex items-start gap-4">
+                    <div class="bg-retro-purple w-12 h-12 rounded-full border-2 border-black flex items-center justify-center shrink-0 shadow-[2px_2px_0_0_rgba(0,0,0,1)]">
+                        <i class="ph-bold ph-bell-ringing text-2xl text-white"></i>
+                    </div>
+                    <div class="w-full">
+                        <h3 class="font-black text-xl text-black uppercase tracking-wide mb-2">Automated: Kelayakan Kupon</h3>
+                        <p class="text-black font-medium mb-4">Sistem check kelayakan kupon dah automated ikut Status dalam tracker. Untuk pastikan 100%:</p>
+
+                        <div class="space-y-3 mb-5">
+                            <div class="flex items-start gap-3 bg-[#fdfbf7] p-3 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+                                <span class="bg-black text-white font-bold px-2 py-0.5 rounded-sm">1</span>
+                                <p class="text-black font-medium text-sm md:text-base">Task siap tapi Status masih 'Pending' &rarr; update ke <span class="retro-badge bg-retro-green px-2 py-0.5 text-xs font-retro-mono uppercase ml-1">Complete</span></p>
+                            </div>
+                            <div class="flex items-start gap-3 bg-[#fdfbf7] p-3 border-2 border-black shadow-[3px_3px_0_0_rgba(0,0,0,1)]">
+                                <span class="bg-black text-white font-bold px-2 py-0.5 rounded-sm">2</span>
+                                <p class="text-black font-medium text-sm md:text-base">Event tiada recording (cuti/cancel) &rarr; update ke <span class="retro-badge bg-gray-200 px-2 py-0.5 text-xs font-retro-mono uppercase ml-1">No Rec</span>, bukan biar 'Pending'</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-retro-yellow border-2 border-dashed border-black p-4 rounded-xl">
+                            <p class="text-black font-bold text-sm md:text-base flex items-center gap-2">
+                                <i class="ph-bold ph-magnifying-glass text-xl"></i>
+                                <span>Self-check % masing-masing di tab <strong class="bg-white border border-black px-1 uppercase text-xs mx-1">Summary</strong> &rarr; dropdown <strong class="bg-white border border-black px-1 uppercase text-xs mx-1">Pilih Bulan</strong>.</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer updated to include G100 Recording -->
+    <footer class="bg-black text-white py-10 mt-12 border-t-8 border-retro-yellow">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-extrabold uppercase tracking-widest mb-2 font-retro-mono">G100 Recording</h2>
+            <p class="font-medium text-gray-300 uppercase tracking-wide text-sm mt-4">&copy; 2026 G100 Committee. Untuk rujukan dalaman sahaja.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // 1. Script for Copy Button functionality
+        function copyCaption() {
+            const textToCopy = document.getElementById('captionText').innerText;
+            const tempTextArea = document.createElement('textarea');
+            tempTextArea.value = textToCopy;
+            document.body.appendChild(tempTextArea);
+            tempTextArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempTextArea);
+
+            const copyBtn = document.getElementById('copyBtn');
+            const originalHTML = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="ph-bold ph-check"></i> Copied!';
+            copyBtn.classList.replace('bg-retro-green', 'bg-retro-pink');
+
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHTML;
+                copyBtn.classList.replace('bg-retro-pink', 'bg-retro-green');
+            }, 2000);
+        }
+
+        // 2. Script to automatically update Today's Date and Sundays for WBM
+        document.addEventListener("DOMContentLoaded", function() {
+            const today = new Date();
+            const months = ["Januari", "Februari", "Mac", "April", "Mei", "Jun", "Julai", "Ogos", "September", "Oktober", "November", "Disember"];
+
+            // Set Hari Ini
+            const dd = String(today.getDate()).padStart(2, '0');
+            const mm = months[today.getMonth()];
+            const yyyy = today.getFullYear();
+
+            const todayDateStr = `${dd} ${mm} ${yyyy}`;
+            document.getElementById('todayDate').innerText = todayDateStr;
+            document.getElementById('bannerTodayDate').innerText = todayDateStr;
+
+            // List of Committees for WBM
+            const wbmCommittees = [
+                { name: "Fathul", colorClass: "bg-retro-pink" },
+                { name: "Rajab", colorClass: "bg-retro-yellow" },
+                { name: "Junaidi", colorClass: "bg-retro-green" },
+                { name: "Rashid", colorClass: "bg-retro-orange" },
+                { name: "Fathul", colorClass: "bg-retro-pink" }
+            ];
+
+            // Kira tarikh hari Ahad dalam bulan semasa
+            const year = today.getFullYear();
+            const month = today.getMonth();
+            let d = new Date(year, month, 1);
+
+            // Cari hari Ahad yang pertama (0 adalah Ahad)
+            while (d.getDay() !== 0) {
+                d.setDate(d.getDate() + 1);
+            }
+
+            let sundays = [];
+            let sundayObjects = [];
+
+            // Masukkan semua hari Ahad untuk bulan tersebut ke dalam array
+            while (d.getMonth() === month) {
+                sundays.push(String(d.getDate()).padStart(2, '0') + ' ' + months[month]);
+                sundayObjects.push(new Date(d));
+                d.setDate(d.getDate() + 7);
+            }
+
+            // Kemaskini DOM untuk Minggu 01 hingga Minggu 05
+            for (let i = 1; i <= 5; i++) {
+                const dateSpan = document.getElementById(`wbm-date-${i}`);
+                if (dateSpan) {
+                    if (sundays[i-1]) {
+                        dateSpan.innerText = sundays[i-1];
+                    } else {
+                        // Jika tiada minggu ke-5
+                        dateSpan.innerText = "Tiada";
+                        dateSpan.classList.add("text-gray-400", "italic");
+                        dateSpan.classList.remove("text-slate-700");
+                    }
+                }
+            }
+
+            // --- Logic untuk Upcoming Upload WBM Alert Box ---
+            let todayTime = new Date(today.getFullYear(), today.getMonth(), today.getDate()).getTime();
+            let upcomingWeekIndex = -1;
+
+            // Semak minggu mana yang merupakan 'upcoming' (Task sah sehingga Selasa iaitu Ahad + 2 hari)
+            for (let i = 0; i < sundayObjects.length; i++) {
+                let taskEndWindow = new Date(sundayObjects[i].getFullYear(), sundayObjects[i].getMonth(), sundayObjects[i].getDate() + 2).getTime();
+
+                if (taskEndWindow >= todayTime) {
+                    upcomingWeekIndex = i;
+                    break;
+                }
+            }
+
+            if (upcomingWeekIndex !== -1) {
+                document.getElementById('upcomingWBM').innerText = `Minggu 0${upcomingWeekIndex + 1} (${sundays[upcomingWeekIndex]})`;
+                let pic = wbmCommittees[upcomingWeekIndex];
+                document.getElementById('upcomingWBMCommittee').innerHTML = `<span class="retro-badge ${pic.colorClass} px-4 py-1.5 text-sm uppercase text-black inline-block mt-1"><i class="ph-bold ph-user mr-1"></i>PIC: ${pic.name}</span>`;
+            } else {
+                document.getElementById('upcomingWBM').innerText = "Selesai Bulan Ini";
+                document.getElementById('upcomingWBMCommittee').innerHTML = `<span class="retro-badge bg-gray-300 px-4 py-1.5 text-sm uppercase text-black inline-block mt-1">Menunggu Bulan Depan</span>`;
+            }
+        });
+    </script>
+
+</body>
+</html>
